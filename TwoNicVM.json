@@ -46,7 +46,7 @@
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[variables('avSetName')]",
             "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "properties": {
                 "platformUpdateDomainCount": 3,
                 "platformFaultDomainCount": 2
@@ -59,7 +59,7 @@
             "name": "[parameters('virtualMachineName')]",
             "type": "Microsoft.Compute/virtualMachines",
             "apiVersion": "2017-03-30",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "comments": "This is the virtual machine that you're building.",
             "dependsOn": [
                 "[concat(parameters('virtualMachineName'),variables('nic1'))]",
@@ -125,7 +125,7 @@
             "name": "[concat(parameters('virtualMachineName'),variables('nic1'))]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "comments": "This will be your Primary NIC",
             "dependsOn": [
                 "[concat(parameters('virtualMachineName'),variables('publicIpAddressName'))]",
@@ -155,7 +155,7 @@
             "name": "[concat(parameters('virtualMachineName'),variables('nic2'))]",
             "type": "Microsoft.Network/networkInterfaces",
             "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "comments": "This will be your Secondary NIC",
             "dependsOn": [
                 "[variables('networkSecurityGroupName')]"
@@ -181,7 +181,7 @@
             "name": "[concat(parameters('virtualMachineName'),variables('publicIpAddressName'))]",
             "type": "Microsoft.Network/publicIpAddresses",
             "apiVersion": "2017-06-01",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "comments": "Public IP for your Primary NIC",
             "properties": {
                 "publicIpAllocationMethod": "Dynamic"
@@ -191,7 +191,7 @@
             "name": "[variables('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2016-09-01",
-            "location": "[resourceGroup().location]",
+            "location": "eastus2",
             "comments": "Network Security Group (NSG) for your Primary NIC",
             "properties": {
                 "securityRules": [
